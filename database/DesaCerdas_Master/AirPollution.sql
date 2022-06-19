@@ -1,0 +1,22 @@
+CREATE TABLE [dbo].AirPollution(
+	[ID] [uniqueidentifier] Primary key NOT NULL,
+	[DistrictID] [uniqueidentifier] NOT NULL,
+	[Weather] [nvarchar](50) NULL,
+	[WeatherDesc] [nvarchar](50) NULL,
+	[TemperatureMin] [decimal](7,2) NULL,
+	[TemperatureMax] [decimal](7,2) NULL,
+	[Humidity] [decimal](7,2) NULL,
+	[WindVelocity] [decimal](7,2) NULL,
+	[AirQualityIndex] [decimal](7,2) NULL,
+	[CarbonRate] [decimal](7,2) NULL,
+	[OzoneRate] [decimal](7,2) NULL,
+	[NitrogenRate] [decimal](7,2) NULL,
+	[FineParticles] [decimal](7,2) NULL,
+	[CoarseParticles] [decimal](7,2) NULL,
+	[Hour] [datetime] NULL,
+	[IsDeleted] [bit] DEFAULT 0 NULL,
+	[Created] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](200) NOT NULL,
+	[Updated] [datetime] NULL,
+	[UpdatedBy] [nvarchar](200) NULL
+)

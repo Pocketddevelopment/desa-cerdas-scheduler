@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DesaCerdasScheduler": {
+      "commandName": "Project",
+      "commandLineArgs": "type=1"
+    }
+  }
+}
