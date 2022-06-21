@@ -63,7 +63,7 @@ namespace DesaCerdasScheduler.Logic
                                     weatherModel.Temp_Min = CalculationHelper.convertKelvinToCelcius(responseWeather.main.temp_min);
                                     weatherModel.Temp_Max = CalculationHelper.convertKelvinToCelcius(responseWeather.main.temp_max);
                                     weatherModel.Humidity = CalculationHelper.parseToDecimal(responseWeather.main.humidity);
-                                    weatherModel.WindVelocity = CalculationHelper.parseToDecimal(responseWeather.wind.speed);
+                                    weatherModel.WindVelocity = Math.Round(CalculationHelper.parseToDecimal(responseWeather.wind.speed), 1, MidpointRounding.AwayFromZero);
                                     weatherModel.WindDegrees = CalculationHelper.parseToDecimal(responseWeather.wind.deg);
                                     weatherModel.Weather = responseWeather.weather.FirstOrDefault().main;
                                     weatherModel.WeatherDesc = responseWeather.weather.FirstOrDefault().description;
@@ -132,8 +132,8 @@ namespace DesaCerdasScheduler.Logic
                     resp.aqi = resp.aqi + CalculationHelper.parseToDecimal(item.main.aqi);
                 }
 
-                resp.co = Decimal.Round((resp.co / data.list.Count()));
-                resp.no2 = Decimal.Round((resp.no2 / data.list.Count()));
+                resp.co = Decimal.Ceiling((resp.co / data.list.Count()));
+                resp.no2 = Decimal.Ceiling((resp.no2 / data.list.Count()));
                 resp.o3 = Decimal.Round((resp.o3 / data.list.Count()));
                 resp.pm2_5 = Decimal.Round((resp.pm2_5 / data.list.Count()));
                 resp.pm10 = Decimal.Round((resp.pm10 / data.list.Count()));
