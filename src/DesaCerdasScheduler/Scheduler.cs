@@ -24,7 +24,7 @@ namespace DesaCerdasScheduler
                 }
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //error
             }

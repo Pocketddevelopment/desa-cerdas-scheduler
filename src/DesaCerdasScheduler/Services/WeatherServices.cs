@@ -22,7 +22,6 @@ namespace DesaCerdasScheduler.Logic
 
     public class WeatherServices
     {
-
         public static void GetWeatherData()
         {
             FinalModelGetWeather weatherModel = new FinalModelGetWeather();
@@ -65,8 +64,9 @@ namespace DesaCerdasScheduler.Logic
                                     weatherModel.Temp_Max = CalculationHelper.convertKelvinToCelcius(responseWeather.main.temp_max);
                                     weatherModel.Humidity = CalculationHelper.parseToDecimal(responseWeather.main.humidity);
                                     weatherModel.WindVelocity = CalculationHelper.parseToDecimal(responseWeather.wind.speed);
+                                    weatherModel.WindDegrees = CalculationHelper.parseToDecimal(responseWeather.wind.deg);
                                     weatherModel.Weather = responseWeather.weather.FirstOrDefault().main;
-                                    weatherModel.WeatherDesc = WeatherHelper.convertDescToBahasa(responseWeather.weather.FirstOrDefault().description);
+                                    weatherModel.WeatherDesc = responseWeather.weather.FirstOrDefault().description;
                                 }
                             }
                         }
@@ -105,9 +105,9 @@ namespace DesaCerdasScheduler.Logic
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
+                //Console.WriteLine(ex.Message);
             }
         }
 

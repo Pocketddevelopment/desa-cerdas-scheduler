@@ -23,6 +23,8 @@ namespace DesaCerdasScheduler.Models
     public class Wind
     {
         public string speed { get; set; }
+
+        public string deg { get; set; }
     }
 
     public class Main
@@ -80,6 +82,7 @@ namespace DesaCerdasScheduler.Models
         public string Weather { get; set; }
         public string WeatherDesc { get; set; }
         public decimal WindVelocity { get; set; }
+        public decimal WindDegrees { get; set; }
         public decimal Aqi { get; set; }
         public decimal Co { get; set; }
         public decimal No2 { get; set; }

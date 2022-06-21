@@ -7,6 +7,7 @@ CREATE TABLE [dbo].AirPollution(
 	[TemperatureMax] [decimal](7,2) NULL,
 	[Humidity] [decimal](7,2) NULL,
 	[WindVelocity] [decimal](7,2) NULL,
+      [WindDegrees] [decimal](7,2) NULL,
 	[AirQualityIndex] [decimal](7,2) NULL,
 	[CarbonRate] [decimal](7,2) NULL,
 	[OzoneRate] [decimal](7,2) NULL,
