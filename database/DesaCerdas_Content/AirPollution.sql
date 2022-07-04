@@ -14,6 +14,7 @@ CREATE TABLE [dbo].AirPollution(
 	[NitrogenRate] [decimal](7,2) NULL,
 	[FineParticles] [decimal](7,2) NULL,
 	[CoarseParticles] [decimal](7,2) NULL,
+      [UviIndex] [decimal](7,2) NULL,
 	[Hour] [datetime] NULL,
 	[IsDeleted] [bit] DEFAULT 0 NULL,
 	[Created] [datetime] NOT NULL,

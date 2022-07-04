@@ -90,7 +90,20 @@ namespace DesaCerdasScheduler.Models
         public decimal pm2_5 { get; set; }
         public decimal pm10 { get; set; }
         public string Hour { get; set; }
+        public decimal UviIndex { get; set; }
 
         #endregion
+    }
+
+    public class UviModel
+    {
+        public UviDetailModel current { get; set; }
+
+    }
+
+    public class UviDetailModel
+    {
+        public decimal uvi { get; set; }
+
     }
 }

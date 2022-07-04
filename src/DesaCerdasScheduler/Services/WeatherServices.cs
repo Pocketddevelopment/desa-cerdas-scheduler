@@ -99,15 +99,30 @@ namespace DesaCerdasScheduler.Logic
                         }
                         #endregion
 
+                        #region get uvi
+                        string urlUvi = url + "onecall" + "?lat=" + dist.Latitude + "&lon=" + dist.Longitude + "&exclude=hourly,daily,minutely&appid=" + openWeatherKey;
+                        using (WebClient client = new WebClient())
+                        {
+                            var downloadString = client.DownloadString(urlUvi);
+                            if (downloadString != null)
+                            {
+                                var responseUvi = JSONHelper.CreateObject<UviModel>(downloadString);
+                                if (responseUvi != null)
+                                {
+                                    weatherModel.UviIndex = responseUvi.current.uvi;
+                                }
+                            }
+                        }
+                        #endregion
                         #region insert DB
                         int rowAffected = AirPollutionRepository.Insert(weatherModel);
                         #endregion
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 
